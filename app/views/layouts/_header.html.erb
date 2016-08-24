@@ -1,18 +1,28 @@
-
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-brand">
-      <%= link_to "Recipe Box", root_path %>
+      <%= link_to "Online Recipe", root_path %>
     </div>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "New Recipe", new_recipe_path %>
-        </li>
-        <li>
-          <%= link_to "Sign Out", root_path, method: :delete %>
-        </li>
-      </ul>
+      <% if user_signed_in? %>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <%= link_to "New Recipe", new_recipe_path %>
+    </li>
+    <li>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    </li>
+  </ul>
+     <% else %>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to "Sign In", new_user_session_path %>
+    </li>
+  </ul>
+<% end %>
     
   </div>
 </nav>
