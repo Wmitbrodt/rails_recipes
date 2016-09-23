@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, only: [:edit, :update, :destroy]
   
   def index
   	@recipe = Recipe.all.order("created_at DESC")
@@ -40,6 +41,13 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  
+  def check_user
+    unless (@recipe.user == current_user)
+      redirect_to root_url, alert: "Sorry, this recipe belongs to someone else!"
+    end
+  end
 
   def recipe_params
   	params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])

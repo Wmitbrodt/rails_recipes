@@ -94,4 +94,8 @@ config.paperclip_defaults = {
     s3_region: ENV.fetch('AWS_REGION'),
   }
 }
+
+# Devise 
+config.action_mailer.default_url_options = { host: 'https://wills-recipes.herokuapp.com/' }
+
 end
