@@ -15,6 +15,7 @@ gem 'paperclip', '~> 5.0'
 gem 'aws-sdk', '~> 2.5', '>= 2.5.6'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'devise', '~> 4.2'
+gem 'friendly_id', '~> 5.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'

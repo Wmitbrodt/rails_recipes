@@ -50,10 +50,10 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-  	params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
+  	params.require(:recipe).permit(:title, :description, :image, :slug, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
   end
 
   def find_recipe
-  	@recipe = Recipe.find(params[:id])
+  	@recipe = Recipe.friendly.find(params[:id]) # find recipe using friendly id
   end
 end
