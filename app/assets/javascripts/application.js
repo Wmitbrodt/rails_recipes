@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require turbolinks
+//= require lightbox
 //= require_tree .

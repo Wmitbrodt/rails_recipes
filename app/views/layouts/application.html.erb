@@ -5,7 +5,6 @@
     <title>RecipesApp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -22,5 +21,6 @@
     <%= render 'layouts/footer' %>
 
     <script id="dsq-count-scr" src="//recipes-app.disqus.com/count.js" async></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
